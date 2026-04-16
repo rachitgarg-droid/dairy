@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vinayak Dairy | Fresh & Pure Dairy Products</title>
+
+    <!-- Google Fonts (FIXED) -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary-blue: #e3f2fd;
+            --accent-blue: #0077b6;
+            --fresh-green: #4caf50;
+            --text-dark: #333;
+            --white: #ffffff;
+            --shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: #fcfcfc;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+            background: var(--white);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--accent-blue);
+            text-transform: uppercase;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 20px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-blue);
+        }
+
+        .hero {
+            height: 80vh;
+            background: linear-gradient(rgba(255,255,255,0.8), rgba(227,242,253,0.8)), 
+            url('https://images.unsplash.com/photo-1582719478250-c89cae4dc85b');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        .hero h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            color: var(--accent-blue);
+            margin-bottom: 10px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 25px;
+        }
+
+        .btn {
+            padding: 12px 30px;
+            background: var(--fresh-green);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 600;
+        }
+
+        section {
+            padding: 70px 10%;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 2rem;
+            color: var(--accent-blue);
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .product-card {
+            background: var(--white);
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: var(--shadow);
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+
+        .seasonal-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: #ff9800;
+            color: white;
+            padding: 5px 12px;
+            font-size: 0.8rem;
+            border-radius: 20px;
+        }
+
+        .features {
+            display: flex;
+            flex-wrap: wrap;
+            background: var(--primary-blue);
+            text-align: center;
+        }
+
+        .feature-item {
+            flex: 1;
+            min-width: 200px;
+            padding: 20px;
+        }
+
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        input, textarea {
+            margin-bottom: 15px;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            width: 100%;
+        }
+
+        footer {
+            background: #333;
+            color: white;
+            padding: 40px 10%;
+            text-align: center;
+        }
+
+        .menu-toggle {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 60px;
+                right: 0;
+                background: white;
+                width: 100%;
+                text-align: center;
+            }
+            .nav-links.active { display: flex; }
+            .menu-toggle { display: block; }
+            .contact-container { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+
+<body>
+
+<nav>
+    <div class="logo">Vinayak Dairy</div>
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+    <ul class="nav-links" id="navLinks">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#products">Products</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+</nav>
+
+<section class="hero" id="home">
+    <h1>Fresh & Pure Dairy Products</h1>
+    <p>Serving quality dairy in Navi Mumbai</p>
+    <a href="#products" class="btn">View Products</a>
+</section>
+
+<section id="about">
+    <h2>About Us</h2>
+    <p style="text-align:center; max-width:700px; margin:auto;">
+        Vinayak Dairy delivers fresh, hygienic dairy products daily. From milk to seasonal mango delights, we ensure quality and taste for every household.
+    </p>
+</section>
+
+<section id="products">
+    <h2>Our Products</h2>
+    <div class="product-grid">
+
+        <div class="product-card">
+            <img src="https://images.unsplash.com/photo-1563636619-e9143da7973b">
+            <h3>Fresh Milk</h3>
+        </div>
+
+        <div class="product-card">
+            <img src="https://images.unsplash.com/photo-1604908176997-125f25cc6f3d">
+            <h3>Paneer</h3>
+        </div>
+
+        <div class="product-card">
+            <img src="https://images.unsplash.com/photo-1585238342024-78d387f4a707">
+            <h3>Ghee</h3>
+        </div>
+
+        <div class="product-card">
+            <img src="https://images.unsplash.com/photo-1625944525533-473f1d3e9f06">
+            <h3>Mango Shake</h3>
+        </div>
+
+        <div class="product-card">
+            <img src="https://images.unsplash.com/photo-1625944239720-3b7f1c6c2c9c">
+            <h3>Aam Ras</h3>
+        </div>
+
+    </div>
+</section>
+
+<section class="features">
+    <div class="feature-item">
+        <h3>Fresh</h3>
+        <p>Daily fresh supply</p>
+    </div>
+    <div class="feature-item">
+        <h3>Affordable</h3>
+        <p>Best prices</p>
+    </div>
+    <div class="feature-item">
+        <h3>Trusted</h3>
+        <p>Quality guaranteed</p>
+    </div>
+</section>
+
+<section id="contact">
+    <h2>Contact</h2>
+    <div class="contact-container">
+        <form id="contactForm">
+            <input type="text" placeholder="Name" required>
+            <input type="tel" placeholder="Phone" required>
+            <textarea placeholder="Message"></textarea>
+            <button class="btn">Send</button>
+        </form>
+
+        <div>
+            <p><strong>Address:</strong> Nerul Sector 21, Navi Mumbai</p>
+            <p><strong>Phone:</strong> 9004682046</p>
+
+            <iframe 
+            src="https://maps.google.com/maps?q=nerul%20sector%2021%20navi%20mumbai&t=&z=13&ie=UTF8&iwloc=&output=embed"
+            width="100%" height="250" style="border:0; border-radius:10px;">
+            </iframe>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <p>© 2026 Vinayak Dairy</p>
+</footer>
+
+<script>
+function toggleMenu() {
+    document.getElementById('navLinks').classList.toggle('active');
+}
+
+document.getElementById('contactForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    alert("Thanks! We'll contact you soon.");
+});
+</script>
+
+</body>
+</html>
